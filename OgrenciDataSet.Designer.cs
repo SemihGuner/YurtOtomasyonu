@@ -20,9 +20,9 @@ namespace YurtOtomasyonu {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("YurtOtomasyonuDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("OgrenciDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class YurtOtomasyonuDataSet : global::System.Data.DataSet {
+    public partial class OgrenciDataSet : global::System.Data.DataSet {
         
         private OgrenciDataTable tableOgrenci;
         
@@ -30,7 +30,7 @@ namespace YurtOtomasyonu {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public YurtOtomasyonuDataSet() {
+        public OgrenciDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace YurtOtomasyonu {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected YurtOtomasyonuDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected OgrenciDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace YurtOtomasyonu {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            YurtOtomasyonuDataSet cln = ((YurtOtomasyonuDataSet)(base.Clone()));
+            OgrenciDataSet cln = ((OgrenciDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace YurtOtomasyonu {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "YurtOtomasyonuDataSet";
+            this.DataSetName = "OgrenciDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/YurtOtomasyonuDataSet.xsd";
+            this.Namespace = "http://tempuri.org/OgrenciDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableOgrenci = new OgrenciDataTable();
@@ -225,7 +225,7 @@ namespace YurtOtomasyonu {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            YurtOtomasyonuDataSet ds = new YurtOtomasyonuDataSet();
+            OgrenciDataSet ds = new OgrenciDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -489,7 +489,7 @@ namespace YurtOtomasyonu {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public OgrenciRow AddOgrenciRow(string TcKimlik, string Ad, string Soyad, string Telefon, string Adres, string Iban, System.DateTime KayitTarihi, bool OdendiMi, string odaNo, string BolumAd, string VeliAd, string VeliSoyad, string VeliTelefon) {
+            public OgrenciRow AddOgrenciRow(string TcKimlik, string Ad, string Soyad, string Telefon, string Adres, string Iban, System.DateTime KayitTarihi, string OdendiMi, string odaNo, string BolumAd, string VeliAd, string VeliSoyad, string VeliTelefon) {
                 OgrenciRow rowOgrenciRow = ((OgrenciRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -570,7 +570,7 @@ namespace YurtOtomasyonu {
                 base.Columns.Add(this.columnIban);
                 this.columnKayitTarihi = new global::System.Data.DataColumn("KayitTarihi", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnKayitTarihi);
-                this.columnOdendiMi = new global::System.Data.DataColumn("OdendiMi", typeof(bool), null, global::System.Data.MappingType.Element);
+                this.columnOdendiMi = new global::System.Data.DataColumn("OdendiMi", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOdendiMi);
                 this.columnodaNo = new global::System.Data.DataColumn("odaNo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnodaNo);
@@ -596,6 +596,7 @@ namespace YurtOtomasyonu {
                 this.columnTelefon.MaxLength = 20;
                 this.columnAdres.MaxLength = 2147483647;
                 this.columnIban.MaxLength = 30;
+                this.columnOdendiMi.MaxLength = 5;
                 this.columnodaNo.MaxLength = 3;
                 this.columnBolumAd.MaxLength = 80;
                 this.columnVeliAd.MaxLength = 30;
@@ -668,7 +669,7 @@ namespace YurtOtomasyonu {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                YurtOtomasyonuDataSet ds = new YurtOtomasyonuDataSet();
+                OgrenciDataSet ds = new OgrenciDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -866,10 +867,10 @@ namespace YurtOtomasyonu {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool OdendiMi {
+            public string OdendiMi {
                 get {
                     try {
-                        return ((bool)(this[this.tableOgrenci.OdendiMiColumn]));
+                        return ((string)(this[this.tableOgrenci.OdendiMiColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("\'Ogrenci\' tablosundaki \'OdendiMi\' sütunun değeri DBNull.", e);
@@ -1152,7 +1153,7 @@ namespace YurtOtomasyonu {
         }
     }
 }
-namespace YurtOtomasyonu.YurtOtomasyonuDataSetTableAdapters {
+namespace YurtOtomasyonu.OgrenciDataSetTableAdapters {
     
     
     /// <summary>
@@ -1309,7 +1310,7 @@ namespace YurtOtomasyonu.YurtOtomasyonuDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_KayitTarihi", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KayitTarihi", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_KayitTarihi", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KayitTarihi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OdendiMi", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OdendiMi", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OdendiMi", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OdendiMi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OdendiMi", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OdendiMi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_odaNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "odaNo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_odaNo", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "odaNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BolumAd", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BolumAd", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1332,7 +1333,7 @@ SELECT ogrID, TcKimlik, Ad, Soyad, Telefon, Adres, Iban, KayitTarihi, OdendiMi, 
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Adres", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Adres", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Iban", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Iban", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KayitTarihi", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KayitTarihi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OdendiMi", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OdendiMi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OdendiMi", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OdendiMi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@odaNo", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "odaNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BolumAd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BolumAd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VeliAd", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VeliAd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1368,7 +1369,7 @@ SELECT ogrID, TcKimlik, Ad, Soyad, Telefon, Adres, Iban, KayitTarihi, OdendiMi, 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Adres", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Adres", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Iban", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Iban", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KayitTarihi", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KayitTarihi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OdendiMi", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OdendiMi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OdendiMi", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OdendiMi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@odaNo", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "odaNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BolumAd", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BolumAd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VeliAd", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VeliAd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1388,7 +1389,7 @@ SELECT ogrID, TcKimlik, Ad, Soyad, Telefon, Adres, Iban, KayitTarihi, OdendiMi, 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_KayitTarihi", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KayitTarihi", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_KayitTarihi", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KayitTarihi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OdendiMi", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OdendiMi", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OdendiMi", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OdendiMi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OdendiMi", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OdendiMi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_odaNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "odaNo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_odaNo", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "odaNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BolumAd", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BolumAd", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1424,7 +1425,7 @@ SELECT ogrID, TcKimlik, Ad, Soyad, Telefon, Adres, Iban, KayitTarihi, OdendiMi, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(YurtOtomasyonuDataSet.OgrenciDataTable dataTable) {
+        public virtual int Fill(OgrenciDataSet.OgrenciDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1437,9 +1438,9 @@ SELECT ogrID, TcKimlik, Ad, Soyad, Telefon, Adres, Iban, KayitTarihi, OdendiMi, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual YurtOtomasyonuDataSet.OgrenciDataTable GetData() {
+        public virtual OgrenciDataSet.OgrenciDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            YurtOtomasyonuDataSet.OgrenciDataTable dataTable = new YurtOtomasyonuDataSet.OgrenciDataTable();
+            OgrenciDataSet.OgrenciDataTable dataTable = new OgrenciDataSet.OgrenciDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1447,14 +1448,14 @@ SELECT ogrID, TcKimlik, Ad, Soyad, Telefon, Adres, Iban, KayitTarihi, OdendiMi, 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(YurtOtomasyonuDataSet.OgrenciDataTable dataTable) {
+        public virtual int Update(OgrenciDataSet.OgrenciDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(YurtOtomasyonuDataSet dataSet) {
+        public virtual int Update(OgrenciDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Ogrenci");
         }
         
@@ -1477,7 +1478,7 @@ SELECT ogrID, TcKimlik, Ad, Soyad, Telefon, Adres, Iban, KayitTarihi, OdendiMi, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ogrID, string Original_TcKimlik, string Original_Ad, string Original_Soyad, string Original_Telefon, string Original_Iban, global::System.Nullable<global::System.DateTime> Original_KayitTarihi, global::System.Nullable<bool> Original_OdendiMi, string Original_odaNo, string Original_BolumAd, string Original_VeliAd, string Original_VeliSoyad, string Original_VeliTelefon) {
+        public virtual int Delete(int Original_ogrID, string Original_TcKimlik, string Original_Ad, string Original_Soyad, string Original_Telefon, string Original_Iban, global::System.Nullable<global::System.DateTime> Original_KayitTarihi, string Original_OdendiMi, string Original_odaNo, string Original_BolumAd, string Original_VeliAd, string Original_VeliSoyad, string Original_VeliTelefon) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ogrID));
             if ((Original_TcKimlik == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -1527,13 +1528,13 @@ SELECT ogrID, TcKimlik, Ad, Soyad, Telefon, Adres, Iban, KayitTarihi, OdendiMi, 
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
-            if ((Original_OdendiMi.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((bool)(Original_OdendiMi.Value));
-            }
-            else {
+            if ((Original_OdendiMi == null)) {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_OdendiMi));
             }
             if ((Original_odaNo == null)) {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
@@ -1595,7 +1596,7 @@ SELECT ogrID, TcKimlik, Ad, Soyad, Telefon, Adres, Iban, KayitTarihi, OdendiMi, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string TcKimlik, string Ad, string Soyad, string Telefon, string Adres, string Iban, global::System.Nullable<global::System.DateTime> KayitTarihi, global::System.Nullable<bool> OdendiMi, string odaNo, string BolumAd, string VeliAd, string VeliSoyad, string VeliTelefon) {
+        public virtual int Insert(string TcKimlik, string Ad, string Soyad, string Telefon, string Adres, string Iban, global::System.Nullable<global::System.DateTime> KayitTarihi, string OdendiMi, string odaNo, string BolumAd, string VeliAd, string VeliSoyad, string VeliTelefon) {
             if ((TcKimlik == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -1638,11 +1639,11 @@ SELECT ogrID, TcKimlik, Ad, Soyad, Telefon, Adres, Iban, KayitTarihi, OdendiMi, 
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((OdendiMi.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((bool)(OdendiMi.Value));
+            if ((OdendiMi == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(OdendiMi));
             }
             if ((odaNo == null)) {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
@@ -1702,7 +1703,7 @@ SELECT ogrID, TcKimlik, Ad, Soyad, Telefon, Adres, Iban, KayitTarihi, OdendiMi, 
                     string Adres, 
                     string Iban, 
                     global::System.Nullable<global::System.DateTime> KayitTarihi, 
-                    global::System.Nullable<bool> OdendiMi, 
+                    string OdendiMi, 
                     string odaNo, 
                     string BolumAd, 
                     string VeliAd, 
@@ -1715,7 +1716,7 @@ SELECT ogrID, TcKimlik, Ad, Soyad, Telefon, Adres, Iban, KayitTarihi, OdendiMi, 
                     string Original_Telefon, 
                     string Original_Iban, 
                     global::System.Nullable<global::System.DateTime> Original_KayitTarihi, 
-                    global::System.Nullable<bool> Original_OdendiMi, 
+                    string Original_OdendiMi, 
                     string Original_odaNo, 
                     string Original_BolumAd, 
                     string Original_VeliAd, 
@@ -1764,11 +1765,11 @@ SELECT ogrID, TcKimlik, Ad, Soyad, Telefon, Adres, Iban, KayitTarihi, OdendiMi, 
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((OdendiMi.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((bool)(OdendiMi.Value));
+            if ((OdendiMi == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(OdendiMi));
             }
             if ((odaNo == null)) {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
@@ -1849,13 +1850,13 @@ SELECT ogrID, TcKimlik, Ad, Soyad, Telefon, Adres, Iban, KayitTarihi, OdendiMi, 
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
-            if ((Original_OdendiMi.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((bool)(Original_OdendiMi.Value));
-            }
-            else {
+            if ((Original_OdendiMi == null)) {
                 this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_OdendiMi));
             }
             if ((Original_odaNo == null)) {
                 this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
@@ -1926,7 +1927,7 @@ SELECT ogrID, TcKimlik, Ad, Soyad, Telefon, Adres, Iban, KayitTarihi, OdendiMi, 
                     string Adres, 
                     string Iban, 
                     global::System.Nullable<global::System.DateTime> KayitTarihi, 
-                    global::System.Nullable<bool> OdendiMi, 
+                    string OdendiMi, 
                     string odaNo, 
                     string BolumAd, 
                     string VeliAd, 
@@ -1939,7 +1940,7 @@ SELECT ogrID, TcKimlik, Ad, Soyad, Telefon, Adres, Iban, KayitTarihi, OdendiMi, 
                     string Original_Telefon, 
                     string Original_Iban, 
                     global::System.Nullable<global::System.DateTime> Original_KayitTarihi, 
-                    global::System.Nullable<bool> Original_OdendiMi, 
+                    string Original_OdendiMi, 
                     string Original_odaNo, 
                     string Original_BolumAd, 
                     string Original_VeliAd, 
@@ -2040,7 +2041,7 @@ SELECT ogrID, TcKimlik, Ad, Soyad, Telefon, Adres, Iban, KayitTarihi, OdendiMi, 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(YurtOtomasyonuDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(OgrenciDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._ogrenciTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Ogrenci.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -2059,7 +2060,7 @@ SELECT ogrID, TcKimlik, Ad, Soyad, Telefon, Adres, Iban, KayitTarihi, OdendiMi, 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(YurtOtomasyonuDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(OgrenciDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._ogrenciTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Ogrenci.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -2077,7 +2078,7 @@ SELECT ogrID, TcKimlik, Ad, Soyad, Telefon, Adres, Iban, KayitTarihi, OdendiMi, 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(YurtOtomasyonuDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(OgrenciDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._ogrenciTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Ogrenci.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -2119,7 +2120,7 @@ SELECT ogrID, TcKimlik, Ad, Soyad, Telefon, Adres, Iban, KayitTarihi, OdendiMi, 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(YurtOtomasyonuDataSet dataSet) {
+        public virtual int UpdateAll(OgrenciDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

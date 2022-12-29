@@ -26,9 +26,7 @@ namespace YurtOtomasyonu
         
 
         private void OgrenciIslemleri_Load(object sender, EventArgs e)
-        {
-            // TODO: Bu kod satırı 'yurtOtomasyonuDataSet.Ogrenci' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
-            this.ogrenciTableAdapter.Fill(this.yurtOtomasyonuDataSet.Ogrenci);
+        { 
             ComboBoxDoldurucu();
             KisiGetir();
             dataOgrenciler.SelectionMode = DataGridViewSelectionMode.CellSelect;
@@ -184,5 +182,36 @@ namespace YurtOtomasyonu
 
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DataView dv = tablo.DefaultView;
+            dv.RowFilter = SecilenArama(comboArama.SelectedIndex) + " Like '" + txtAra.Text + "%'";
+            dataOgrenciler.DataSource = dv;
+        }
+        private string SecilenArama(int secilenIndex)
+        {
+            switch (secilenIndex)
+            {
+                case 0:
+                    return "TcKimlik";
+                case 1:
+                    return "Ad";
+                case 2:
+                    return "Soyad";
+                case 3:
+                    return "Telefon";
+                case 4:
+                    return "BolumAd"; 
+                case 6:
+                    return "OdendiMi"; 
+                default:
+                    return "OdaNo";
+            }
+        }
+
+        private void dataOgrenciler_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

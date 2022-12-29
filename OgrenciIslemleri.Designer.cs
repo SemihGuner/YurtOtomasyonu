@@ -58,18 +58,17 @@ namespace YurtOtomasyonu
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.OgrenciBilgi = new System.Windows.Forms.GroupBox();
-            this.yurtOtomasyonuDataSet = new YurtOtomasyonu.YurtOtomasyonuDataSet();
             this.ogrenciBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ogrenciTableAdapter = new YurtOtomasyonu.YurtOtomasyonuDataSetTableAdapters.OgrenciTableAdapter();
             this.dataOgrenciler = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtAra = new System.Windows.Forms.TextBox();
+            this.comboArama = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
+            this.ogrenciBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.OgrenciBilgi.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.yurtOtomasyonuDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ogrenciBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataOgrenciler)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ogrenciBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -356,21 +355,10 @@ namespace YurtOtomasyonu
             this.OgrenciBilgi.Size = new System.Drawing.Size(609, 447);
             this.OgrenciBilgi.TabIndex = 32;
             this.OgrenciBilgi.TabStop = false;
-            this.OgrenciBilgi.Text = "OgrenciBilgi";
-            // 
-            // yurtOtomasyonuDataSet
-            // 
-            this.yurtOtomasyonuDataSet.DataSetName = "YurtOtomasyonuDataSet";
-            this.yurtOtomasyonuDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // ogrenciBindingSource
             // 
             this.ogrenciBindingSource.DataMember = "Ogrenci";
-            this.ogrenciBindingSource.DataSource = this.yurtOtomasyonuDataSet;
-            // 
-            // ogrenciTableAdapter
-            // 
-            this.ogrenciTableAdapter.ClearBeforeFill = true;
             // 
             // dataOgrenciler
             // 
@@ -382,6 +370,7 @@ namespace YurtOtomasyonu
             this.dataOgrenciler.Size = new System.Drawing.Size(453, 378);
             this.dataOgrenciler.TabIndex = 33;
             this.dataOgrenciler.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataOgrenciler_CellClick);
+            this.dataOgrenciler.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataOgrenciler_CellContentClick);
             // 
             // button4
             // 
@@ -392,39 +381,45 @@ namespace YurtOtomasyonu
             this.button4.Text = "Öğrenci Listesi";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtAra
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox1.Location = new System.Drawing.Point(671, 135);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(223, 27);
-            this.textBox1.TabIndex = 29;
+            this.txtAra.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtAra.Location = new System.Drawing.Point(671, 132);
+            this.txtAra.Name = "txtAra";
+            this.txtAra.Size = new System.Drawing.Size(223, 27);
+            this.txtAra.TabIndex = 29;
             // 
-            // comboBox1
+            // comboArama
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboArama.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.comboArama.FormattingEnabled = true;
+            this.comboArama.Items.AddRange(new object[] {
             "TC Kimlik",
             "Ad",
             "Soyad",
             "Telefon",
             "Bölüm",
-            "Oda"});
-            this.comboBox1.Location = new System.Drawing.Point(900, 135);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(83, 28);
-            this.comboBox1.TabIndex = 29;
+            "Oda",
+            "Ödeme Durumu"});
+            this.comboArama.Location = new System.Drawing.Point(900, 132);
+            this.comboArama.Name = "comboArama";
+            this.comboArama.Size = new System.Drawing.Size(83, 28);
+            this.comboArama.TabIndex = 29;
             // 
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button5.Location = new System.Drawing.Point(989, 136);
+            this.button5.Location = new System.Drawing.Point(989, 132);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(83, 24);
+            this.button5.Size = new System.Drawing.Size(83, 30);
             this.button5.TabIndex = 35;
             this.button5.Text = "ARA";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // ogrenciBindingSource1
+            // 
+            this.ogrenciBindingSource1.DataMember = "Ogrenci";
             // 
             // OgrenciIslemleri
             // 
@@ -432,8 +427,8 @@ namespace YurtOtomasyonu
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1110, 562);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.comboArama);
+            this.Controls.Add(this.txtAra);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.dataOgrenciler);
             this.Controls.Add(this.button3);
@@ -445,9 +440,9 @@ namespace YurtOtomasyonu
             this.Load += new System.EventHandler(this.OgrenciIslemleri_Load);
             this.OgrenciBilgi.ResumeLayout(false);
             this.OgrenciBilgi.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.yurtOtomasyonuDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ogrenciBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataOgrenciler)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ogrenciBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -482,14 +477,13 @@ namespace YurtOtomasyonu
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.GroupBox OgrenciBilgi;
-        private YurtOtomasyonuDataSet yurtOtomasyonuDataSet;
-        private System.Windows.Forms.BindingSource ogrenciBindingSource;
-        private YurtOtomasyonuDataSetTableAdapters.OgrenciTableAdapter ogrenciTableAdapter;
+        private System.Windows.Forms.GroupBox OgrenciBilgi; 
+        private System.Windows.Forms.BindingSource ogrenciBindingSource; 
         private System.Windows.Forms.DataGridView dataOgrenciler;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox txtAra;
+        private System.Windows.Forms.ComboBox comboArama;
+        private System.Windows.Forms.Button button5; 
+        private System.Windows.Forms.BindingSource ogrenciBindingSource1; 
     }
 }
