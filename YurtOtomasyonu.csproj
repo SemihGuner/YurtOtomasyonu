@@ -52,6 +52,12 @@
     <Compile Include="AnaMenu.Designer.cs">
       <DependentUpon>AnaMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="GirisCikis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GirisCikis.Designer.cs">
+      <DependentUpon>GirisCikis.cs</DependentUpon>
+    </Compile>
     <Compile Include="OgrenciIslemleri.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AnaMenu.resx">
       <DependentUpon>AnaMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GirisCikis.resx">
+      <DependentUpon>GirisCikis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OgrenciIslemleri.resx">
       <DependentUpon>OgrenciIslemleri.cs</DependentUpon>

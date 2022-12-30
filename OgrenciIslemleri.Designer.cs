@@ -374,6 +374,7 @@ namespace YurtOtomasyonu
             // 
             // button4
             // 
+            this.button4.AutoSize = true;
             this.button4.Location = new System.Drawing.Point(805, 12);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(201, 60);
@@ -425,6 +426,7 @@ namespace YurtOtomasyonu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1110, 562);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.comboArama);

@@ -56,7 +56,7 @@ namespace YurtOtomasyonu
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(187, 497);
+            this.panel1.Size = new System.Drawing.Size(187, 553);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -142,19 +142,20 @@ namespace YurtOtomasyonu
             this.DegisenPanel.AutoSize = true;
             this.DegisenPanel.Location = new System.Drawing.Point(187, -1);
             this.DegisenPanel.Name = "DegisenPanel";
-            this.DegisenPanel.Size = new System.Drawing.Size(864, 497);
+            this.DegisenPanel.Size = new System.Drawing.Size(1094, 553);
             this.DegisenPanel.TabIndex = 1;
             // 
             // AnaMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1051, 497);
+            this.ClientSize = new System.Drawing.Size(1282, 553);
             this.Controls.Add(this.DegisenPanel);
             this.Controls.Add(this.panel1);
             this.IsMdiContainer = true;
             this.Name = "AnaMenu";
             this.Text = "Ana Menü";
+            this.Load += new System.EventHandler(this.AnaMenu_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

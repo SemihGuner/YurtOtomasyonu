@@ -39,6 +39,16 @@ namespace YurtOtomasyonu
 
         private void button2_Click(object sender, EventArgs e)
         {
+            DegisenPanel.Controls.Clear();
+            GirisCikis girisCikis = new GirisCikis();
+            girisCikis.MdiParent = this;
+            girisCikis.FormBorderStyle = FormBorderStyle.None;
+            DegisenPanel.Controls.Add(girisCikis);
+            girisCikis.Show();
+        }
+
+        private void AnaMenu_Load(object sender, EventArgs e)
+        {
 
         }
     }
