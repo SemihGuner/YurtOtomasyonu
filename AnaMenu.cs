@@ -12,9 +12,15 @@ namespace YurtOtomasyonu
 {
     public partial class AnaMenu : Form
     {
+
         public AnaMenu()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+        }
+
+
+        private void AnaMenu_Load(object sender, EventArgs e)
+        {
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -47,11 +53,6 @@ namespace YurtOtomasyonu
             girisCikis.Show();
         }
 
-        private void AnaMenu_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button4_Click(object sender, EventArgs e)
         {
             DegisenPanel.Controls.Clear();
@@ -71,6 +72,31 @@ namespace YurtOtomasyonu
             DegisenPanel.Controls.Add(muh);
             muh.Show();
 
+        }
+
+        private void btnCikisYap_Click(object sender, EventArgs e)
+        {
+            Giris cikis = new Giris();
+            this.Hide();
+            cikis.ShowDialog();
+            this.Close();
+
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            VeriMenusu veri = new VeriMenusu();
+            DegisenPanel.Controls.Clear(); 
+            veri.MdiParent = this;
+            veri.FormBorderStyle = FormBorderStyle.None;
+            DegisenPanel.Controls.Add(veri);
+            veri.Show();
         }
     }
 }

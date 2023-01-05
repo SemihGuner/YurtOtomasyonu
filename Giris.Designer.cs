@@ -76,7 +76,7 @@ namespace YurtOtomasyonu
             this.girisButonu.TabIndex = 10;
             this.girisButonu.Text = "Giriş Yap";
             this.girisButonu.UseVisualStyleBackColor = true;
-            this.girisButonu.Click += new System.EventHandler(this.girisButonu_Click_1);
+            this.girisButonu.Click += new System.EventHandler(this.girisButonu_Click);
             // 
             // textBox2
             // 
