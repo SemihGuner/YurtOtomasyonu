@@ -166,5 +166,15 @@ namespace YurtOtomasyonu
             }
 
         }
+
+        private void dataVeriler_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataOgrencilerTablosu_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -70,6 +70,7 @@ namespace YurtOtomasyonu
             this.dataOgrencilerTablosu.Size = new System.Drawing.Size(440, 172);
             this.dataOgrencilerTablosu.TabIndex = 6;
             this.dataOgrencilerTablosu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataOgrencilerTablosu_CellClick);
+            this.dataOgrencilerTablosu.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataOgrencilerTablosu_CellContentClick);
             // 
             // label1
             // 
@@ -153,6 +154,7 @@ namespace YurtOtomasyonu
             this.dataVeriler.RowTemplate.Height = 24;
             this.dataVeriler.Size = new System.Drawing.Size(440, 172);
             this.dataVeriler.TabIndex = 13;
+            this.dataVeriler.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataVeriler_CellContentClick);
             // 
             // label2
             // 

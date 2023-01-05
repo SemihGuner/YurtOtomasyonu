@@ -51,5 +51,26 @@ namespace YurtOtomasyonu
         {
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DegisenPanel.Controls.Clear();
+            Odalar odalar = new Odalar();
+            odalar.MdiParent = this;
+            odalar.FormBorderStyle = FormBorderStyle.None;
+            DegisenPanel.Controls.Add(odalar);
+            odalar.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DegisenPanel.Controls.Clear();
+            Muhasebe muh = new Muhasebe();
+            muh.MdiParent = this;
+            muh.FormBorderStyle = FormBorderStyle.None;
+            DegisenPanel.Controls.Add(muh);
+            muh.Show();
+
+        }
     }
 }

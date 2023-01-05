@@ -89,6 +89,7 @@ namespace YurtOtomasyonu
             this.button4.TabIndex = 5;
             this.button4.Text = "Odalar";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -99,6 +100,7 @@ namespace YurtOtomasyonu
             this.button3.TabIndex = 4;
             this.button3.Text = "Muhasebe";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 

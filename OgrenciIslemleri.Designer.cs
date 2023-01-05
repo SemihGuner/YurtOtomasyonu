@@ -58,16 +58,16 @@ namespace YurtOtomasyonu
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.OgrenciBilgi = new System.Windows.Forms.GroupBox();
-            this.ogrenciBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataOgrenciler = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
             this.txtAra = new System.Windows.Forms.TextBox();
             this.comboArama = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
+            this.ogrenciBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ogrenciBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.OgrenciBilgi.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ogrenciBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataOgrenciler)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ogrenciBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ogrenciBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -350,15 +350,11 @@ namespace YurtOtomasyonu
             this.OgrenciBilgi.Controls.Add(this.comboOda);
             this.OgrenciBilgi.Controls.Add(this.maskedIban);
             this.OgrenciBilgi.Controls.Add(this.label8);
-            this.OgrenciBilgi.Location = new System.Drawing.Point(12, 103);
+            this.OgrenciBilgi.Location = new System.Drawing.Point(12, 88);
             this.OgrenciBilgi.Name = "OgrenciBilgi";
             this.OgrenciBilgi.Size = new System.Drawing.Size(609, 447);
             this.OgrenciBilgi.TabIndex = 32;
             this.OgrenciBilgi.TabStop = false;
-            // 
-            // ogrenciBindingSource
-            // 
-            this.ogrenciBindingSource.DataMember = "Ogrenci";
             // 
             // dataOgrenciler
             // 
@@ -367,7 +363,7 @@ namespace YurtOtomasyonu
             this.dataOgrenciler.Name = "dataOgrenciler";
             this.dataOgrenciler.RowHeadersWidth = 51;
             this.dataOgrenciler.RowTemplate.Height = 24;
-            this.dataOgrenciler.Size = new System.Drawing.Size(453, 378);
+            this.dataOgrenciler.Size = new System.Drawing.Size(453, 363);
             this.dataOgrenciler.TabIndex = 33;
             this.dataOgrenciler.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataOgrenciler_CellClick);
             this.dataOgrenciler.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataOgrenciler_CellContentClick);
@@ -381,6 +377,7 @@ namespace YurtOtomasyonu
             this.button4.TabIndex = 34;
             this.button4.Text = "Öğrenci Listesi";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // txtAra
             // 
@@ -389,6 +386,7 @@ namespace YurtOtomasyonu
             this.txtAra.Name = "txtAra";
             this.txtAra.Size = new System.Drawing.Size(223, 27);
             this.txtAra.TabIndex = 29;
+            this.txtAra.TextChanged += new System.EventHandler(this.txtAra_TextChanged);
             // 
             // comboArama
             // 
@@ -406,6 +404,7 @@ namespace YurtOtomasyonu
             this.comboArama.Name = "comboArama";
             this.comboArama.Size = new System.Drawing.Size(83, 28);
             this.comboArama.TabIndex = 29;
+            this.comboArama.SelectedIndexChanged += new System.EventHandler(this.comboArama_SelectedIndexChanged);
             // 
             // button5
             // 
@@ -418,6 +417,10 @@ namespace YurtOtomasyonu
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // ogrenciBindingSource
+            // 
+            this.ogrenciBindingSource.DataMember = "Ogrenci";
+            // 
             // ogrenciBindingSource1
             // 
             this.ogrenciBindingSource1.DataMember = "Ogrenci";
@@ -427,7 +430,7 @@ namespace YurtOtomasyonu
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1110, 562);
+            this.ClientSize = new System.Drawing.Size(1112, 543);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.comboArama);
             this.Controls.Add(this.txtAra);
@@ -442,8 +445,8 @@ namespace YurtOtomasyonu
             this.Load += new System.EventHandler(this.OgrenciIslemleri_Load);
             this.OgrenciBilgi.ResumeLayout(false);
             this.OgrenciBilgi.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ogrenciBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataOgrenciler)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ogrenciBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ogrenciBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -42,6 +42,7 @@ namespace YurtOtomasyonu
             dataOgrenciler.ReadOnly = true;
             baglanti.Close();
         }
+        
 
         private void ComboBoxDoldurucu()
         {
@@ -56,7 +57,7 @@ namespace YurtOtomasyonu
             baglanti.Close();
             // İkinci combobox
             BaglantiAc();
-            komut = new SqlCommand("select OdaNo from Oda where kalanKisi != kapasite", baglanti);
+            komut = new SqlCommand("select OdaNo from Oda where kalanKisi != kapasite and OdaNo!='000'", baglanti);
             oku = komut.ExecuteReader();
             while (oku.Read())
             {
@@ -87,7 +88,18 @@ namespace YurtOtomasyonu
             komut.Parameters.AddWithValue("@VeliSoyad", txtVeliSoyad.Text);
             komut.Parameters.AddWithValue("@VeliTelefon", maskedVeliTelefon.Text); 
             BaglantiAc();
-            komut.ExecuteNonQuery();
+            try
+            {
+                komut.ExecuteNonQuery();
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show("HATA! \n" + sqlEx.Message); 
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("HATA!");
+            }
             baglanti.Close();
             KisiGetir();
         }
@@ -184,10 +196,44 @@ namespace YurtOtomasyonu
 
         private void button5_Click(object sender, EventArgs e)
         {
+            if (comboArama.SelectedIndex == 0)
+            {
+                TcAra(txtAra.Text.ToString()); 
+            }
+            else if (comboArama.SelectedIndex == 1)
+            {
+                AdAra(txtAra.Text.ToString()); 
+            }
+            else 
+            { 
             DataView dv = tablo.DefaultView;
             dv.RowFilter = SecilenArama(comboArama.SelectedIndex) + " Like '" + txtAra.Text + "%'";
             dataOgrenciler.DataSource = dv;
+            }
         }
+
+        private void TcAra(string dis)
+        {
+            string sorgu = "exec spTCArama "+ dis;
+            adapter = new SqlDataAdapter(sorgu, baglanti);
+            tablo = new DataTable();
+            BaglantiAc();
+            adapter.Fill(tablo);
+            dataOgrenciler.DataSource = tablo;
+            dataOgrenciler.ReadOnly = true;
+            baglanti.Close();
+        }
+        private void AdAra(string dis)
+        {
+            string sorgu = "exec spAdlaArama "+ dis;
+            adapter = new SqlDataAdapter(sorgu, baglanti);
+            tablo = new DataTable();
+            BaglantiAc();
+            adapter.Fill(tablo);
+            dataOgrenciler.DataSource = tablo;
+            dataOgrenciler.ReadOnly = true;
+            baglanti.Close();
+        } 
         private string SecilenArama(int secilenIndex)
         {
             switch (secilenIndex)
@@ -210,6 +256,30 @@ namespace YurtOtomasyonu
         }
 
         private void dataOgrenciler_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if ((Application.OpenForms["OgrenciListesi"] as OgrenciListesi) != null)
+            {
+                //Form is already open
+            }
+            else
+            {
+                // Form is not open
+                OgrenciListesi ogr = new OgrenciListesi();
+                ogr.Show();
+            }
+        }
+
+        private void comboArama_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAra_TextChanged(object sender, EventArgs e)
         {
 
         }
