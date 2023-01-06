@@ -133,7 +133,6 @@ namespace YurtOtomasyonu
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.AutoSize = true;
             this.groupBox2.Controls.Add(this.btnExpGozat);
             this.groupBox2.Controls.Add(this.tbExportPath);
@@ -189,7 +188,6 @@ namespace YurtOtomasyonu
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.AutoSize = true;
             this.groupBox3.Controls.Add(this.btnVTYDGozat);
             this.groupBox3.Controls.Add(this.tbVTE);

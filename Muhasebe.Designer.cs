@@ -105,10 +105,10 @@ namespace YurtOtomasyonu
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(493, 245);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(482, 242);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(312, 38);
+            this.label2.Size = new System.Drawing.Size(286, 36);
             this.label2.TabIndex = 36;
             this.label2.Text = "Muhasebe Kayıtları";
             // 
