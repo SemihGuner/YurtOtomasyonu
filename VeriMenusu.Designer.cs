@@ -76,18 +76,19 @@ namespace YurtOtomasyonu
             this.groupBox1.Controls.Add(this.btngozat);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(482, 102);
+            this.groupBox1.Size = new System.Drawing.Size(536, 102);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
             // inputDizini
             // 
             this.inputDizini.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.inputDizini.Location = new System.Drawing.Point(166, 15);
+            this.inputDizini.Location = new System.Drawing.Point(200, 18);
             this.inputDizini.Name = "inputDizini";
             this.inputDizini.ReadOnly = true;
             this.inputDizini.Size = new System.Drawing.Size(233, 30);
             this.inputDizini.TabIndex = 21;
+            this.inputDizini.TextChanged += new System.EventHandler(this.inputDizini_TextChanged_1);
             // 
             // label2
             // 
@@ -102,21 +103,23 @@ namespace YurtOtomasyonu
             // buttonImp
             // 
             this.buttonImp.Enabled = false;
-            this.buttonImp.Location = new System.Drawing.Point(395, 51);
+            this.buttonImp.Location = new System.Drawing.Point(450, 49);
             this.buttonImp.Name = "buttonImp";
             this.buttonImp.Size = new System.Drawing.Size(80, 30);
             this.buttonImp.TabIndex = 20;
             this.buttonImp.Text = "IMPORT";
             this.buttonImp.UseVisualStyleBackColor = true;
+            this.buttonImp.Click += new System.EventHandler(this.buttonImp_Click);
             // 
             // btngozat
             // 
-            this.btngozat.Location = new System.Drawing.Point(405, 15);
+            this.btngozat.Location = new System.Drawing.Point(460, 13);
             this.btngozat.Name = "btngozat";
             this.btngozat.Size = new System.Drawing.Size(70, 30);
             this.btngozat.TabIndex = 19;
             this.btngozat.Text = "Gözat...";
             this.btngozat.UseVisualStyleBackColor = true;
+            this.btngozat.Click += new System.EventHandler(this.btngozat_Click);
             // 
             // label4
             // 
@@ -138,14 +141,14 @@ namespace YurtOtomasyonu
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(12, 120);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(482, 126);
+            this.groupBox2.Size = new System.Drawing.Size(536, 126);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             // 
             // btnExpGozat
             // 
             this.btnExpGozat.AutoSize = true;
-            this.btnExpGozat.Location = new System.Drawing.Point(405, 13);
+            this.btnExpGozat.Location = new System.Drawing.Point(460, 13);
             this.btnExpGozat.Name = "btnExpGozat";
             this.btnExpGozat.Size = new System.Drawing.Size(70, 30);
             this.btnExpGozat.TabIndex = 9;
@@ -156,7 +159,7 @@ namespace YurtOtomasyonu
             // tbExportPath
             // 
             this.tbExportPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbExportPath.Location = new System.Drawing.Point(168, 13);
+            this.tbExportPath.Location = new System.Drawing.Point(200, 15);
             this.tbExportPath.Name = "tbExportPath";
             this.tbExportPath.ReadOnly = true;
             this.tbExportPath.Size = new System.Drawing.Size(231, 30);
@@ -166,7 +169,7 @@ namespace YurtOtomasyonu
             // btnExport
             // 
             this.btnExport.Enabled = false;
-            this.btnExport.Location = new System.Drawing.Point(395, 49);
+            this.btnExport.Location = new System.Drawing.Point(450, 49);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(80, 30);
             this.btnExport.TabIndex = 9;
@@ -201,7 +204,7 @@ namespace YurtOtomasyonu
             // btnVTYDGozat
             // 
             this.btnVTYDGozat.AutoSize = true;
-            this.btnVTYDGozat.Location = new System.Drawing.Point(262, 16);
+            this.btnVTYDGozat.Location = new System.Drawing.Point(368, 13);
             this.btnVTYDGozat.Name = "btnVTYDGozat";
             this.btnVTYDGozat.Size = new System.Drawing.Size(70, 30);
             this.btnVTYDGozat.TabIndex = 9;
@@ -221,7 +224,7 @@ namespace YurtOtomasyonu
             // btnVTYedektenDon
             // 
             this.btnVTYedektenDon.Enabled = false;
-            this.btnVTYedektenDon.Location = new System.Drawing.Point(262, 49);
+            this.btnVTYedektenDon.Location = new System.Drawing.Point(316, 49);
             this.btnVTYedektenDon.Name = "btnVTYedektenDon";
             this.btnVTYedektenDon.Size = new System.Drawing.Size(122, 30);
             this.btnVTYedektenDon.TabIndex = 9;
@@ -255,7 +258,7 @@ namespace YurtOtomasyonu
             // tbVTI
             // 
             this.tbVTI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbVTI.Location = new System.Drawing.Point(129, 15);
+            this.tbVTI.Location = new System.Drawing.Point(11, 51);
             this.tbVTI.Name = "tbVTI";
             this.tbVTI.ReadOnly = true;
             this.tbVTI.Size = new System.Drawing.Size(233, 30);

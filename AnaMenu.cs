@@ -87,6 +87,12 @@ namespace YurtOtomasyonu
         private void button6_Click(object sender, EventArgs e)
         {
 
+            AdminIslemleri adm = new AdminIslemleri();
+            DegisenPanel.Controls.Clear();
+            adm.MdiParent = this;
+            adm.FormBorderStyle = FormBorderStyle.None;
+            DegisenPanel.Controls.Add(adm);
+            adm.Show();
         }
 
         private void button5_Click(object sender, EventArgs e)

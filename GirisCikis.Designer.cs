@@ -42,6 +42,7 @@ namespace YurtOtomasyonu
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtDurum = new System.Windows.Forms.Label();
+            this.btnPDF = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataOgrencilerTablosu)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -185,6 +186,17 @@ namespace YurtOtomasyonu
             this.txtDurum.Size = new System.Drawing.Size(0, 32);
             this.txtDurum.TabIndex = 14;
             // 
+            // btnPDF
+            // 
+            this.btnPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnPDF.Location = new System.Drawing.Point(165, 364);
+            this.btnPDF.Name = "btnPDF";
+            this.btnPDF.Size = new System.Drawing.Size(233, 38);
+            this.btnPDF.TabIndex = 45;
+            this.btnPDF.Text = "XLSX olarak çıktı al";
+            this.btnPDF.UseVisualStyleBackColor = true;
+            this.btnPDF.Click += new System.EventHandler(this.btnPDF_Click);
+            // 
             // GirisCikis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -192,6 +204,7 @@ namespace YurtOtomasyonu
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1076, 506);
+            this.Controls.Add(this.btnPDF);
             this.Controls.Add(this.txtDurum);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
@@ -229,5 +242,6 @@ namespace YurtOtomasyonu
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label txtDurum;
+        private System.Windows.Forms.Button btnPDF;
     }
 }

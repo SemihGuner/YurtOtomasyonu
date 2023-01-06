@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +16,7 @@ namespace YurtOtomasyonu
     {
         SqlConnection baglanti = new SqlConnection(@"server=127.0.0.1;initial catalog=YurtOtomasyonu;integrated security=true"); 
         SqlDataAdapter adapter;
-        DataTable tablo;
+        DataTable tablo,tabloIki;
 
         public Muhasebe()
         {
@@ -70,7 +71,7 @@ namespace YurtOtomasyonu
         private void DekontGetir()
         {
             adapter = new SqlDataAdapter("select top (100) Ad,Soyad,odemeTarihi as 'Ödeme Tarihi',tutar as 'Tutar' from Ogrenci full outer join Muhasebe on Ogrenci.ogrID = Muhasebe.ogrID", baglanti);
-            tablo = new DataTable();
+            tabloIki = new DataTable();
             BaglantiAc();
             adapter.Fill(tablo);
             dataDekontlar.DataSource = tablo;
@@ -80,7 +81,7 @@ namespace YurtOtomasyonu
         private void DekontGetir(string TC)
         {
             adapter = new SqlDataAdapter("select top (100) Ad,Soyad,odemeTarihi as 'Ödeme Tarihi',tutar as 'Tutar' from Ogrenci full outer join Muhasebe on Ogrenci.ogrID = Muhasebe.ogrID where Ogrenci.TcKimlik ='" + TC + "'", baglanti);
-            tablo = new DataTable();
+            tabloIki = new DataTable();
             BaglantiAc();
             adapter.Fill(tablo);
             dataDekontlar.DataSource = tablo;
@@ -119,6 +120,29 @@ namespace YurtOtomasyonu
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnPDF_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Sayfası| *.xlsx" })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        using (XLWorkbook workbook = new XLWorkbook())
+                        {
+                            workbook.Worksheets.Add(tabloIki, "Muhasebe");
+                            workbook.SaveAs(sfd.FileName);
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("HATA! \n :" + ex.Message);
+                    }
+                }
+            }
         }
     }
 }

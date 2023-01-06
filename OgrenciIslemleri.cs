@@ -48,7 +48,7 @@ namespace YurtOtomasyonu
         {
             // Birinci combobox
             BaglantiAc();
-            komut = new SqlCommand("select bolumAd from Bolum", baglanti);
+            komut = new SqlCommand("select distinct bolumAd from Bolum", baglanti);
             oku = komut.ExecuteReader();
             while (oku.Read())
             {

@@ -10,7 +10,8 @@ namespace YurtOtomasyonu
 {
     public partial class VeriMenusu : Form
     {
-        string yol,expYol; 
+        string yol,expYol;
+        string yolbackup, yolrestore;
         SqlConnection dbConnection = new SqlConnection(@"server=127.0.0.1;initial catalog=YurtOtomasyonu;integrated security=true");
 
         private void BaglantiAc()
@@ -201,49 +202,88 @@ namespace YurtOtomasyonu
 
         private void btnVTYGozat_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            if (fbd.ShowDialog() == DialogResult.OK)
+            FolderBrowserDialog folderbrowserdialog = new FolderBrowserDialog();
+
+            if (folderbrowserdialog.ShowDialog() == DialogResult.OK)
             {
-                tbVTI.Text = fbd.SelectedPath;
+                yolbackup = folderbrowserdialog.SelectedPath;
+                tbVTI.Text = yolbackup;
                 btnVTYedekle.Enabled = true;
             }
         }
 
         private void btnVTYedekle_Click(object sender, EventArgs e)
         {
-            /*
-            string database = dbConnection.Database.ToString();
-            if (tbVTI.Text==string.Empty)
+            try
             {
-                MessageBox.Show("Lütfen lokasyon seçiniz.");
+
+                if (tbVTI.Text != "")
+                {
+                    DateTime now = DateTime.Now;
+
+                    string backupyol = @"BACKUP DATABASE [YurtOtomasyonu] TO  DISK ='" + yolbackup + @"\YurtOtomasyonu " + now.ToString("dd-MM-yyyy HH;mm;ss") + ".bak'";
+                    var komut = new SqlCommand(backupyol, dbConnection);
+                    BaglantiAc();
+                    komut.ExecuteNonQuery();
+                    dbConnection.Close();
+                    txtKontrol.Text = "Yedekleme Tamamlandı!";
+                }
+                else
+                {
+                    MessageBox.Show("Yedekle alınacak klasörü seçin!");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                string cmd = "BACKUP DATABASE [" + database + "] TO DISK '" + tbVTI.Text + "\\" + "database" + "-" + DateTime.Now.ToString("yyyy-MM-dd--HH--mm--ss")+".bak'" ;
-                BaglantiAc();
-                SqlCommand command = new SqlCommand(cmd, dbConnection);
-                command.ExecuteNonQuery();
-                txtKontrol.Text = "Yedekleme tamamlandı.";
-                dbConnection.Close();
-                btnVTIImport.Enabled = false;
+                MessageBox.Show(ex.Message); 
             }
-            */
         }
 
         private void btnVTYDGozat_Click(object sender, EventArgs e)
         {
-            OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = "SQL Server Database Backup File|.bak";
-            if (dlg.ShowDialog() == DialogResult.OK)
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.InitialDirectory = "c:\\";
+            openFileDialog1.FilterIndex = 0;
+            openFileDialog1.RestoreDirectory = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                tbVTE.Text = dlg.FileName;
+                yolrestore = openFileDialog1.FileName;
+                tbVTE.Text = yolrestore;
                 btnVTYedektenDon.Enabled = true;
+
             }
+        }
+
+        private void inputDizini_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
 
         private void btnVTYedektenDon_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (tbVTE.Text != "")
+                {
+                    SqlConnection baglantirestore = new SqlConnection(@"server=127.0.0.1;initial catalog=master;integrated security=true");
+                    string restoreyol = @"alter database YurtOtomasyonu set offline with rollback immediate " +" \n "+ @"RESTORE DATABASE [YurtOtomasyonu] FROM  DISK  ='" + yolrestore + "' with replace" + "\n" + @"alter database YurtOtomasyonu set online";
+                    var komut = new SqlCommand(restoreyol, baglantirestore);
+                    baglantirestore.Open();
+                    komut.ExecuteNonQuery();
+                    baglantirestore.Close();
+                    txtKontrol.Text = "Yedekten dönme başarılı!";
+                }
+                else
+                {
+                    MessageBox.Show("Yedekten dönmek için dosya seçiniz!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void txtExportDizin_Click(object sender, EventArgs e){}

@@ -42,6 +42,7 @@ namespace YurtOtomasyonu
             this.textboxTutar = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnPDF = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataOgrenci)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDekontlar)).BeginInit();
             this.SuspendLayout();
@@ -105,7 +106,7 @@ namespace YurtOtomasyonu
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(625, 244);
+            this.label2.Location = new System.Drawing.Point(493, 245);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(312, 38);
             this.label2.TabIndex = 36;
@@ -183,12 +184,24 @@ namespace YurtOtomasyonu
             this.label7.Text = "TL";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
+            // btnPDF
+            // 
+            this.btnPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnPDF.Location = new System.Drawing.Point(831, 242);
+            this.btnPDF.Name = "btnPDF";
+            this.btnPDF.Size = new System.Drawing.Size(233, 38);
+            this.btnPDF.TabIndex = 44;
+            this.btnPDF.Text = "XLSX olarak çıktı al";
+            this.btnPDF.UseVisualStyleBackColor = true;
+            this.btnPDF.Click += new System.EventHandler(this.btnPDF_Click);
+            // 
             // Muhasebe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1076, 506);
+            this.Controls.Add(this.btnPDF);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textboxTutar);
@@ -227,5 +240,6 @@ namespace YurtOtomasyonu
         private System.Windows.Forms.TextBox textboxTutar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnPDF;
     }
 }
