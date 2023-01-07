@@ -74,9 +74,9 @@ namespace YurtOtomasyonu
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.buttonImp);
             this.groupBox1.Controls.Add(this.btngozat);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 133);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(536, 102);
+            this.groupBox1.Size = new System.Drawing.Size(536, 113);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
@@ -138,9 +138,9 @@ namespace YurtOtomasyonu
             this.groupBox2.Controls.Add(this.tbExportPath);
             this.groupBox2.Controls.Add(this.btnExport);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 120);
+            this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(536, 126);
+            this.groupBox2.Size = new System.Drawing.Size(536, 102);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             // 

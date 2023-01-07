@@ -214,11 +214,11 @@ namespace YurtOtomasyonu
             { 
                 if (tbVTI.Text != "")
                 {
-                    DateTime now = DateTime.Now;
-
+                    DateTime now = DateTime.Now; 
+                    BaglantiAc();
                     string backupyol = @"BACKUP DATABASE [YurtOtomasyonu] TO  DISK ='" + yolbackup + @"\YurtOtomasyonu " + now.ToString("dd-MM-yyyy HH;mm;ss") + ".bak'";
                     var komut = new SqlCommand(backupyol, dbConnection);
-                    BaglantiAc();
+                    komut.Connection = dbConnection;
                     komut.ExecuteNonQuery();
                     dbConnection.Close();
                     txtKontrol.Text = "Yedekleme Tamamlandı!";
