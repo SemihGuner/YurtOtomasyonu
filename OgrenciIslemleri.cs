@@ -196,19 +196,26 @@ namespace YurtOtomasyonu
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (comboArama.SelectedIndex == 0)
-            {
-                TcAra(txtAra.Text.ToString()); 
-            }
-            else if (comboArama.SelectedIndex == 1)
-            {
-                AdAra(txtAra.Text.ToString()); 
-            }
-            else 
+            if (txtAra.Text.ToString() != "")
             { 
-            DataView dv = tablo.DefaultView;
-            dv.RowFilter = SecilenArama(comboArama.SelectedIndex) + " Like '" + txtAra.Text + "%'";
-            dataOgrenciler.DataSource = dv;
+                if (comboArama.SelectedIndex == 0)
+                {
+                    TcAra(txtAra.Text.ToString());
+                }
+                else if (comboArama.SelectedIndex == 1)
+                {
+                    AdAra(txtAra.Text.ToString());
+                }
+                else
+                {
+                    DataView dv = tablo.DefaultView;
+                    dv.RowFilter = SecilenArama(comboArama.SelectedIndex) + " Like '" + txtAra.Text + "%'";
+                    dataOgrenciler.DataSource = dv;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lütfen kutucuğu doldurun.");
             }
         }
 
