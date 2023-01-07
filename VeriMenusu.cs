@@ -144,33 +144,29 @@ namespace YurtOtomasyonu
 
         private string CSVOlustur(IDataReader reader)
         { 
-            List<string> lines = new List<string>();
-
-            string headerLine = "";
-            if (reader.Read())
-            {
-                string[] columns = new string[reader.FieldCount];
-                for (int i = 0; i < reader.FieldCount; i++)
-                {
-                    columns[i] = reader.GetName(i);
-                }
-                headerLine = string.Join(";",columns);
-                lines.Add(headerLine);
-            }
-            while (reader.Read())
-            {
-                object[] val = new object[reader.FieldCount];
-                reader.GetValues(val);
-                lines.Add(string.Join(";", val));
-            }
+            StreamWriter sw = new StreamWriter(expYol);
+            object[] output = new object[reader.FieldCount]; 
             try
             { 
-                System.IO.File.WriteAllLines(expYol, lines);
+                for (int i = 0; i < reader.FieldCount; i++)
+                    output[i] = reader.GetName(i);
+
+                sw.WriteLine(string.Join(";", output));
+
+                while (reader.Read())
+                {
+                    reader.GetValues(output);
+                    sw.WriteLine(string.Join(";", output));
+                }
+
+                sw.Close();
+                reader.Close();
             }
             catch (Exception e)
             {
                 MessageBox.Show("Hata: " + e.Message);
             }
+            dbConnection.Close();
             return expYol;
         }
          
@@ -215,8 +211,7 @@ namespace YurtOtomasyonu
         private void btnVTYedekle_Click(object sender, EventArgs e)
         {
             try
-            {
-
+            { 
                 if (tbVTI.Text != "")
                 {
                     DateTime now = DateTime.Now;
