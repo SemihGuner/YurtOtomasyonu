@@ -29,6 +29,7 @@ namespace YurtOtomasyonu
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AnaMenu));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCikisYap = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -170,6 +171,7 @@ namespace YurtOtomasyonu
             this.ClientSize = new System.Drawing.Size(1320, 553);
             this.Controls.Add(this.DegisenPanel);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "AnaMenu";
             this.Text = "Ana Menü";
