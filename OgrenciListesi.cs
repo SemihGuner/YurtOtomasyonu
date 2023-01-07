@@ -152,5 +152,10 @@ namespace YurtOtomasyonu
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void dataOgrenciler_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

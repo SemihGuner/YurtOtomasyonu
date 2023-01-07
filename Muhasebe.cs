@@ -49,7 +49,7 @@ namespace YurtOtomasyonu
         }
         private void KisiGetir(string TC)
         { 
-            adapter = new SqlDataAdapter("SELECT Ad,Soyad,OdendiMi FROM Ogrenci where TcKimlik = '"+TC+"'", baglanti);
+            adapter = new SqlDataAdapter("SELECT ogrID,Ad,Soyad,OdendiMi FROM Ogrenci where TcKimlik = '"+TC+"'", baglanti);
             tablo = new DataTable();
             BaglantiAc();
             adapter.Fill(tablo);
@@ -59,7 +59,7 @@ namespace YurtOtomasyonu
         }
         private void KisiGetir()
         { 
-            adapter = new SqlDataAdapter("SELECT Ad,Soyad,OdendiMi FROM Ogrenci", baglanti);
+            adapter = new SqlDataAdapter("SELECT ogrID,Ad,Soyad,OdendiMi FROM Ogrenci", baglanti);
             tablo = new DataTable();
             BaglantiAc();
             adapter.Fill(tablo);
@@ -98,7 +98,7 @@ namespace YurtOtomasyonu
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string sorgu = "Insert into Muhasebe(ogrID,tutar) values("+ dataOgrenci.CurrentRow.Cells[0].Value+ " , "+ textboxTutar.Text.ToString() +")";
+            string sorgu = "Insert into Muhasebe(ogrID,tutar) values("+ this.dataOgrenci.CurrentRow.Cells[0].Value + " , "+ textboxTutar.Text.ToString() +")";
             var komut = new SqlCommand(sorgu, baglanti);  
             BaglantiAc();
             komut.ExecuteNonQuery();

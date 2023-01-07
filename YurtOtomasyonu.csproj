@@ -176,6 +176,12 @@
     <Compile Include="GirisCikis.Designer.cs">
       <DependentUpon>GirisCikis.cs</DependentUpon>
     </Compile>
+    <Compile Include="IzinMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IzinMenu.Designer.cs">
+      <DependentUpon>IzinMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Muhasebe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GirisCikis.resx">
       <DependentUpon>GirisCikis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IzinMenu.resx">
+      <DependentUpon>IzinMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Muhasebe.resx">
       <DependentUpon>Muhasebe.cs</DependentUpon>

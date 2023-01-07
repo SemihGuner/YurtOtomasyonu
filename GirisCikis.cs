@@ -200,5 +200,17 @@ namespace YurtOtomasyonu
                 }
             }
         }
+
+        private void btnIzinMenu_Click(object sender, EventArgs e)
+        {
+            if ((Application.OpenForms["IzinMenu"] as IzinMenu) != null)
+            { 
+            }
+            else
+            { 
+                IzinMenu izin = new IzinMenu();
+                izin.Show();
+            }
+        }
     }
 }

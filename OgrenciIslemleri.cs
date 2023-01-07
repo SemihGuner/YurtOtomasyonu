@@ -263,12 +263,10 @@ namespace YurtOtomasyonu
         private void button4_Click(object sender, EventArgs e)
         {
             if ((Application.OpenForms["OgrenciListesi"] as OgrenciListesi) != null)
-            {
-                //Form is already open
+            { 
             }
             else
-            {
-                // Form is not open
+            { 
                 OgrenciListesi ogr = new OgrenciListesi();
                 ogr.Show();
             }

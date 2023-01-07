@@ -29,6 +29,7 @@ namespace YurtOtomasyonu
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OgrenciListesi));
             this.dataOgrenciler = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.btnPDF = new System.Windows.Forms.Button();
@@ -47,6 +48,7 @@ namespace YurtOtomasyonu
             this.dataOgrenciler.RowTemplate.Height = 24;
             this.dataOgrenciler.Size = new System.Drawing.Size(776, 338);
             this.dataOgrenciler.TabIndex = 0;
+            this.dataOgrenciler.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataOgrenciler_CellContentClick);
             // 
             // label1
             // 
@@ -78,6 +80,7 @@ namespace YurtOtomasyonu
             this.Controls.Add(this.btnPDF);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataOgrenciler);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OgrenciListesi";
             this.Text = "OgrenciListesi";
             this.Load += new System.EventHandler(this.OgrenciListesi_Load);
