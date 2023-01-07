@@ -16,7 +16,7 @@ namespace YurtOtomasyonu
     {
         SqlConnection baglanti = new SqlConnection(@"server=127.0.0.1;initial catalog=YurtOtomasyonu;integrated security=true"); 
         SqlDataAdapter adapter;
-        DataTable tablo,tabloIki;
+        DataTable tablo;
 
         public Muhasebe()
         {
@@ -71,7 +71,7 @@ namespace YurtOtomasyonu
         private void DekontGetir()
         {
             adapter = new SqlDataAdapter("select top (100) Ad,Soyad,odemeTarihi as 'Ödeme Tarihi',tutar as 'Tutar' from Ogrenci full outer join Muhasebe on Ogrenci.ogrID = Muhasebe.ogrID", baglanti);
-            tabloIki = new DataTable();
+            tablo = new DataTable();
             BaglantiAc();
             adapter.Fill(tablo);
             dataDekontlar.DataSource = tablo;
@@ -81,7 +81,7 @@ namespace YurtOtomasyonu
         private void DekontGetir(string TC)
         {
             adapter = new SqlDataAdapter("select top (100) Ad,Soyad,odemeTarihi as 'Ödeme Tarihi',tutar as 'Tutar' from Ogrenci full outer join Muhasebe on Ogrenci.ogrID = Muhasebe.ogrID where Ogrenci.TcKimlik ='" + TC + "'", baglanti);
-            tabloIki = new DataTable();
+            tablo = new DataTable();
             BaglantiAc();
             adapter.Fill(tablo);
             dataDekontlar.DataSource = tablo;
@@ -132,7 +132,7 @@ namespace YurtOtomasyonu
                     {
                         using (XLWorkbook workbook = new XLWorkbook())
                         {
-                            workbook.Worksheets.Add(tabloIki, "Muhasebe");
+                            workbook.Worksheets.Add(tablo, "Muhasebe");
                             workbook.SaveAs(sfd.FileName);
 
                         }

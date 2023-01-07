@@ -27,7 +27,7 @@ namespace YurtOtomasyonu
         } 
         SqlConnection baglanti = new SqlConnection(@"server=127.0.0.1;initial catalog=YurtOtomasyonu;integrated security=true"); 
         SqlDataAdapter adapter;
-        DataTable tablo,tabloIki;
+        DataTable tablo;
         SqlCommand komut;
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -68,7 +68,7 @@ namespace YurtOtomasyonu
         private void GCGetir()
         {
             adapter = new SqlDataAdapter("select top (10) Ogrenci.ogrID,TcKimlik,Ad,Soyad, GirisCikisState, IslemTarihi from Ogrenci right outer join GirisCikis on Ogrenci.ogrID=GirisCikis.ogrID order by IslemTarihi desc", baglanti);
-            tabloIki = new DataTable();
+            tablo = new DataTable();
             BaglantiAc();
             adapter.Fill(tablo);
             dataVeriler.DataSource = tablo;
@@ -78,7 +78,7 @@ namespace YurtOtomasyonu
         private void GCGetir(string ogrID)
         {
             adapter = new SqlDataAdapter("select top (100) Ogrenci.ogrID,TcKimlik,Ad,Soyad, GirisCikisState, IslemTarihi from Ogrenci right outer join GirisCikis on Ogrenci.ogrID=GirisCikis.ogrID order by IslemTarihi desc", baglanti);
-            tabloIki = new DataTable();
+            tablo = new DataTable();
             BaglantiAc();
             adapter.Fill(tablo); 
             dataVeriler.ReadOnly = true;
@@ -188,7 +188,7 @@ namespace YurtOtomasyonu
                     {
                         using (XLWorkbook workbook = new XLWorkbook())
                         {
-                            workbook.Worksheets.Add(tabloIki, "Giriş-Çıkış");
+                            workbook.Worksheets.Add(tablo, "Giriş-Çıkış");
                             workbook.SaveAs(sfd.FileName);
 
                         }
