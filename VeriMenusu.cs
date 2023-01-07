@@ -12,6 +12,7 @@ namespace YurtOtomasyonu
     {
         string yol,expYol;
         string yolbackup, yolrestore;
+        SqlCommand komut;
         SqlConnection dbConnection = new SqlConnection(@"server=127.0.0.1;initial catalog=YurtOtomasyonu;integrated security=true");
 
         private void BaglantiAc()
@@ -158,14 +159,13 @@ namespace YurtOtomasyonu
                     reader.GetValues(output);
                     sw.WriteLine(string.Join(";", output));
                 }
-
-                sw.Close();
-                reader.Close();
             }
             catch (Exception e)
             {
                 MessageBox.Show("Hata: " + e.Message);
-            }
+            } 
+            sw.Close();
+            reader.Close();
             dbConnection.Close();
             return expYol;
         }
@@ -175,7 +175,8 @@ namespace YurtOtomasyonu
             using (dbConnection)
             {
                 BaglantiAc();
-                return CSVOlustur(new SqlCommand("select * from Ogrenci", dbConnection).ExecuteReader()); 
+                komut = new SqlCommand("select * from Ogrenci", dbConnection);
+                return CSVOlustur(komut.ExecuteReader()); 
             }
         }
 
@@ -217,7 +218,7 @@ namespace YurtOtomasyonu
                     DateTime now = DateTime.Now; 
                     BaglantiAc();
                     string backupyol = @"BACKUP DATABASE [YurtOtomasyonu] TO  DISK ='" + yolbackup + @"\YurtOtomasyonu " + now.ToString("dd-MM-yyyy HH;mm;ss") + ".bak'";
-                    var komut = new SqlCommand(backupyol, dbConnection);
+                    komut = new SqlCommand(backupyol, dbConnection);
                     komut.Connection = dbConnection;
                     komut.ExecuteNonQuery();
                     dbConnection.Close();
@@ -264,7 +265,7 @@ namespace YurtOtomasyonu
                 {
                     SqlConnection baglantirestore = new SqlConnection(@"server=127.0.0.1;initial catalog=master;integrated security=true");
                     string restoreyol = @"alter database YurtOtomasyonu set offline with rollback immediate " +" \n "+ @"RESTORE DATABASE [YurtOtomasyonu] FROM  DISK  ='" + yolrestore + "' with replace" + "\n" + @"alter database YurtOtomasyonu set online";
-                    var komut = new SqlCommand(restoreyol, baglantirestore);
+                    komut = new SqlCommand(restoreyol, baglantirestore);
                     baglantirestore.Open();
                     komut.ExecuteNonQuery();
                     baglantirestore.Close();
