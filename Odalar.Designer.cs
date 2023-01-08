@@ -34,6 +34,7 @@ namespace YurtOtomasyonu
             this.label2 = new System.Windows.Forms.Label();
             this.dataOdadakiler = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnHata = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tableOdalar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataOdadakiler)).BeginInit();
             this.SuspendLayout();
@@ -91,12 +92,22 @@ namespace YurtOtomasyonu
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(68, 408);
+            this.label3.Location = new System.Drawing.Point(68, 438);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(944, 29);
             this.label3.TabIndex = 4;
             this.label3.Text = "Not: Odadaki öğrencileri görmek için görmek istediğiniz odaya tablodan basınız.";
             this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // btnHata
+            // 
+            this.btnHata.Location = new System.Drawing.Point(12, 377);
+            this.btnHata.Name = "btnHata";
+            this.btnHata.Size = new System.Drawing.Size(515, 42);
+            this.btnHata.TabIndex = 5;
+            this.btnHata.Text = "Odalarda Hata Olması Durumunda Basınız";
+            this.btnHata.UseVisualStyleBackColor = true;
+            this.btnHata.Click += new System.EventHandler(this.btnHata_Click);
             // 
             // Odalar
             // 
@@ -104,6 +115,7 @@ namespace YurtOtomasyonu
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1076, 506);
+            this.Controls.Add(this.btnHata);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dataOdadakiler);
             this.Controls.Add(this.label2);
@@ -126,5 +138,6 @@ namespace YurtOtomasyonu
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataOdadakiler;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnHata;
     }
 }

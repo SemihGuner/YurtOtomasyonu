@@ -17,6 +17,7 @@ namespace YurtOtomasyonu
         SqlDataAdapter adapter;
         DataTable tablo;
         string sorgu;
+        List<string> odalar = new List<string>();
         private string OdaNoTutucu;
 
         public Odalar()
@@ -75,6 +76,24 @@ namespace YurtOtomasyonu
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnHata_Click(object sender, EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("select OdaNo from Oda", baglanti);
+            BaglantiAc();
+            var oku= komut.ExecuteReader();
+            while (oku.Read())
+            {
+                odalar.Add(oku.GetString(0)); 
+            }
+            oku.Close(); 
+            for (int i = 0; i < odalar.Count(); i++)
+            {
+                //MessageBox.Show(odalar[i]);
+                SqlCommand komutIki = new SqlCommand("update Oda set kalanKisi=(select Count(Ad) from Ogrenci where odaNo='" + odalar[i] + "') where odaNo='"+odalar[i]+"'", baglanti);
+                komutIki.ExecuteNonQuery();
+            }
         }
     }
 }

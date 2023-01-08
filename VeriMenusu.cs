@@ -135,8 +135,7 @@ namespace YurtOtomasyonu
                     s.DestinationTableName = "Ogrenci";
 
                     foreach (var column in csvFileData.Columns)
-                        s.ColumnMappings.Add(column.ToString(), column.ToString());
-
+                        s.ColumnMappings.Add(column.ToString(), column.ToString()); 
                     s.WriteToServer(csvFileData);
                 }
             } 
@@ -215,13 +214,14 @@ namespace YurtOtomasyonu
             { 
                 if (tbVTI.Text != "")
                 {
-                    DateTime now = DateTime.Now; 
-                    BaglantiAc();
+                    DateTime now = DateTime.Now;  
+                    SqlConnection baglanti = new SqlConnection(@"server=127.0.0.1;initial catalog=YurtOtomasyonu;integrated security=true");
+                    baglanti.Open();
                     string backupyol = @"BACKUP DATABASE [YurtOtomasyonu] TO  DISK ='" + yolbackup + @"\YurtOtomasyonu " + now.ToString("dd-MM-yyyy HH;mm;ss") + ".bak'";
-                    komut = new SqlCommand(backupyol, dbConnection);
-                    komut.Connection = dbConnection;
+                    komut = new SqlCommand(backupyol, baglanti);
+                    komut.Connection = baglanti;
                     komut.ExecuteNonQuery();
-                    dbConnection.Close();
+                    baglanti.Close();
                     txtKontrol.Text = "Yedekleme Tamamlandı!";
                 }
                 else
