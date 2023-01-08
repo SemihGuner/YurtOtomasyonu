@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using ClosedXML.Excel;
 
 namespace YurtOtomasyonu
 { 
@@ -208,10 +209,15 @@ namespace YurtOtomasyonu
                 }
                 else
                 {
-                    DataView dv = tablo.DefaultView;
-                    dv.RowFilter = SecilenArama(comboArama.SelectedIndex) + " Like '" + txtAra.Text + "%'";
-                    dataOgrenciler.DataSource = dv;
+                    string sorgu = "select * from Ogrenci where " + SecilenArama(comboArama.SelectedIndex) + " = '" + txtAra.Text.ToString() + "'";
+                    adapter = new SqlDataAdapter(sorgu, baglanti);
+                    tablo = new DataTable();
+                    adapter.Fill(tablo);
+                    dataOgrenciler.DataSource = tablo;
+                    dataOgrenciler.ReadOnly = true;
+                    baglanti.Close(); 
                 }
+                btnXlsx.Enabled = true;
             }
             else
             {
@@ -287,6 +293,29 @@ namespace YurtOtomasyonu
         private void txtAra_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnXlsx_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Sayfası| *.xlsx" })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        using (XLWorkbook workbook = new XLWorkbook())
+                        {
+                            workbook.Worksheets.Add(tablo, "Öğrenciler");
+                            workbook.SaveAs(sfd.FileName);
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("HATA! \n :" + ex.Message);
+                    }
+                }
+            }
         }
     }
 }
